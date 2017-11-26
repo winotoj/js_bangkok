@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html lang="en-US">
+<!-- Prepared by Miguel Legault 8547102 -->
+<!-- Extended Oleksii Redko-->
+
+<head>
+<meta charset="utf-8">
+<title>Table reservation | Cuisine Bangkok</title>
+<link href="css/cuisine_bangkok_common.css" rel="stylesheet" type="text/css">
+<meta name="description" content="table reservation | restorant cusine Bangkok." />
+    <script src="scripts/modernizr.custom.05819.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="scripts/reserve.js"></script>
+
+
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Main Container -->
+<div class="container"> 
+  <!-- Navigation -->
+  <header> 
+    <nav>
+      <ul>
+        <li><a href="CuisineBangkokMain.html">HOME</a></li>
+        <li><a href="CuisineBangkokMenu.html">MENU</a></li>
+        <li><a href="CuisineBangkokTypicallyThai.html">TYPICALLY THAI</a></li>
+        <li><a href="#">RESERVE</a></li>
+        <li><a href="CuisineBangkokAbout.html">ABOUT</a></li>
+        <li><a href="CuisineBangkokOrder.html">ORDER NOW</a></li>
+        <li><a href="#footer">CONTACT</a></li>
+		
+      </ul>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+    <section class="hero" id="hero">
+     <img src="images/thai1.jpg" height="50%" width="100%" ; />
+    <div class="logo-center"></div>
+    <h2 class="hero_header">CUISINE <span class="light">BANGKOK</span></h2>
+    <p class="tagline">AUTHENTIC THAI CUISINE</p>
+  </section>
+  <!-- Main content section -->
+    <main style="text-align:center;">
+	<h2>Table Reservation</h2>
+        <form name="table_reservation_form" id="table_reservation_form" method="get" action="reservation_complete.html" autocomplete="on" onsubmit="return verify();">
+           
+                <fieldset id="resrvationInfo" name="resrvationInfo" style=" margin:auto; background-color:#d57e52; border:none; " >
+                    
+                    <legend style="background-color:#ffffff ; font-size:18px;font-weight:bold;"> Reservation Information</legend>
+                    <input type="radio" name="seating" value="nearWindow" class="ld" id="nW" /><label for="nW">Near Window</label>
+                    <input type="radio" name="seating" value="chefTable" class="ld" id="cT" /><label for="cT">Chef Table</label>
+                    <table style="margin:auto;">
+                        
+                        <tr>
+                            <td class="rightAlign"><label for="resDate" >Date&colon;&ast;</label></td>
+                            <td class="leftAlign"><input type="date" id="resDate" name="resDate" style="width:250px" placeholder="mm/dd/yyyy" required="required" /></td>
+                            <td id="dateError" class="warning"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="rightAlign"><label for="resTime">Time&colon;&ast;</label></td>
+                            <td class="leftAlign"><input type="time" id="resTime" name="resTime" style="width:250px" required="required" placeholder="6:00 PM" value="18:00"/></td>
+                            <td id="timeError" class="warning"></td>
+                        </tr>
+                        <tr>
+                            <td class="rightAlign"><label for="adults"> Number of Person&colon;&ast; </label></td>
+                            <td class="leftAlign">
+                                <label for="adults">Adults&colon;</label>
+                                <select name="adults">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                               <!-- <input style="width:50px;" type="number" id="adults" name="adults" min="1" max="6" value="1" required="required" />-->
+                                <label for="childrens">Childrens&colon;</label>
+                                <input style="width:50px;" type="number" id="childrens" name="childrens" value="0" max="3" />
+                            </td>
+                        </tr>
+                    </table>
+                    <textarea rows="5" cols="50" name="comment" form="table_reservation_form" placeholder="Enter your note here" maxlength="250"></textarea>
+                </fieldset>	<br/>
+
+			<fieldset id="contactInfo" name="contactInfo" style="margin:auto; background-color:#b3b3b3; border:none;">
+            <legend style="background-color:#ffffff ; font-size:18px;font-weight:bold;">Contact Information</legend>
+				<table style="margin:auto;">
+					<tr>
+						<td class="rightAlign"> <label for="name">Name&colon;&ast;</label></td>
+						<td class="leftAlign"> <input type="text" id="name" name="name" required="required"  style="width:250px"   /></td>
+                        <td id="nameError" class="warning"></td>
+					</tr>
+					<tr>
+						<td class="rightAlign"> <label for="phoneNumber">Phone Number&colon;&ast;</label></td>
+						<!--<td class="leftAlign"><input type="tel" id="phoneNumber" name="phoneNumber" placeholder="555-555-5555" pattern="^\d{3}-\d{3}-\d{4}$" required="required" /></td>-->
+                        <td class="leftAlign"><input type="tel" id="phoneNumber" name="phoneNumber" placeholder="555-555-5555" required="required"  style="width:250px"  /></td>
+                        <td id="phoneError" class="warning"></td>
+					</tr>
+					<tr>
+						<td class="rightAlign">   <label for="email">E-mail Adress&colon;&ast;</label></td>
+						<td class="leftAlign"> <input type="text" id="email" name="email" placeholder="myemail@example.com" required="required"  style="width:250px"  /></td>
+                        <td id="emailError" class="warning"></td>
+					</tr>
+				</table>
+			 </fieldset>
+			 
+			<div style=" padding:10px; text-align:center;">
+				<input type="submit" id="submit" name="submit" class="button"  value="Reserve a table" />
+				<input type="reset" id="reset" name="reset" class="button" style="color: black;"/>
+			</div>
+        </form>
+    </main>
+
+  <!-- Parallax Section -->
+  <section class="banner">
+    <h2 class="parallax">THAI PROVERB</h2>
+    <p class="parallax_description">Finding a friend for a meal is easy&semi;<br />finding a friend for life is hard.</p>
+  </section>
+  <!-- More Info Section -->
+  <footer id="footer">
+    <article class="footer_column">
+      <h3>HOURS</h3>
+      <p>
+      	Friday 11&colon;30AM–10PM<br />
+      	Saturday 11&colon;30AM–10PM<br />
+		Sunday 5–9PM<br />
+		Monday 11&colon;30AM–10PM<br />
+		Tuesday 11&colon;30AM–10PM<br />
+		Wednesday 11&colon;30AM–10PM<br />
+		Thursday 11&colon;30AM–10PM
+	</p>
+    </article>
+	<article class="footer_column">
+          <h3>SITEMAP</h3>
+          <p>
+              <a href="Sitemap.html">Sitemap</a>
+          </p>
+      </article>
+    <article class="footer_column">
+   	  <h3>LOCATION</h3>
+	  <address>1327 St Catherine St E<br/>Montreal, QC<br />H2L 2H4<br/>Canada</address>
+    <p>Phone: 514 935-2178</p>
+	</article>
+	<article class="footer_column">
+          <h3>LIKE US</h3>
+          <p><a href="https://www.facebook.com/Cuisine-Bangkok-125773131698/" title="Like us on Facebook">Like us on Facebook<br /><img src="images/FacebookIcon.png" alt="Facebook Icon" title="Facebook Icon" height="25" width="25"/></a></p>
+      </article>
+  </footer>
+ 
+  
+  <!-- Copyrights Section -->
+  <div class="copyright">&copy;2017 - <strong>Team WAMO</strong></div>
+</div>
+<!-- Main Container Ends -->
+</body>
+</html>
